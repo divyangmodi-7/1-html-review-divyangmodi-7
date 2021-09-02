@@ -1,0 +1,41 @@
+header {
+  background-color: #76ADEC;
+  color: white;
+  padding: 8px;
+  font-size:  15px;
+  font-weight: bold;
+  width: 100%;
+}
+thead{
+  background-color: red;
+  color: white
+}
+tfoot{
+  background-color: grey;
+  color: white;
+  text-align: center;
+}
+.mainpage{
+  text-align: center;
+}
+.ref{
+  font-style: italic;
+}
+form{
+  margin: 24px;
+}
+.righttext{
+  text-align: right;
+  font-weight: bold;
+}
+
+#songs{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
