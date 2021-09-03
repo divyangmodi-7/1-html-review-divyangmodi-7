@@ -1,3 +1,6 @@
+body {
+  background-color: lightpink;
+}
 header {
   background-color: #76ADEC;
   color: white;
@@ -5,6 +8,9 @@ header {
   font-size:  15px;
   font-weight: bold;
   width: 100%;
+}
+a {
+  color: blue;
 }
 thead{
   background-color: red;
