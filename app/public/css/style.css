@@ -56,11 +56,11 @@ th[role=columnheader]:not(.no-sort) {
 
 th[role=columnheader]:not(.no-sort):after {
 	content: '';
-	float: right;
+	float: left;
 	margin-top: 7px;
-	border-width: 0 4px 4px;
+	border-width: 0 6px 6px;
 	border-style: solid;
-	border-color: #404040 transparent;
+	border-color: #e75480;
 	visibility: hidden;
 	opacity: 0;
 	-ms-user-select: none;
