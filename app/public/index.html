@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>D&S HW 1</title>
+    <title>D&S HW</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Adding Vue js-->
+ 
+<script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <header>
@@ -32,9 +36,10 @@
     </ul>
   </div>
 </nav>
-<div class="container">
-  <center><img src="img/chris martin.jpg" alt="FakePhoto" class="image-responsive" width="40%" height="40%"></center>
-  <h1 align="center">Chris Martin</h1>
+<div id='app'>
+<div id='makingcenter' class="container">
+  <a v-bind:href = "person.picture.thumbnail" > <img v-bind:src="person.picture.thumbnail" width='150' height='150'></a>
+  <h1>{{person.name.first}}</h1>
   <h4 class="mainpage"> Here are a few details about the best user I know! </h4> <br>
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -44,12 +49,20 @@
       <h5 class="righttext">Email</h5><br>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
-      <h5>United Kingdom</h5><br>
-      <h5>May 21, 1979</h5><br>
-      <h5>42 years</h5><br>
-      <h5><a href = "mailto: chrismartin.coldplay@example.com">chrismartin.coldplay@example.com</a></h5>
+      <h5>{{person.location.city}}</h5><br>
+      <h5>{{person.dob.date[5]+person.dob.date[6]+person.dob.date[7]+person.dob.date[8]+person.dob.date[9]+person.dob.date[4]+person.dob.date[0]+person.dob.date[1]+person.dob.date[2]+person.dob.date[3]}}</h5><br>
+      <h5>{{person.dob.age}}</h5><br>
+      <h5><a v-bind:href="'mailto:' + person.email">
+        {{person.email }}
+       </a></h5>
     </div>
   </div>
 </div>
+</div>
+<script src="./js/index.js"></script>
+<!-- Mount App -->
+<script>
+  const mountedApp = app.mount('#app')
+</script>
 </body>
 </html>
