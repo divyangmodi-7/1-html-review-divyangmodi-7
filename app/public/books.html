@@ -9,6 +9,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <!-- Adding Vue js-->
+ 
+<script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <header>
@@ -36,62 +39,59 @@
 
 <div id='makingcenter'>
 <h4>Books to Read</h4>
-    <table id="sometable" class="table table-bordered table-striped ">
-      <thead>
-       <tr>
-       <th class="text-center">Title </th>
-       <th class="text-center">Author</th>
-       <th class="text-center">Year Published</th>
-       <th class="text-center">Publisher</th>
-       <th class="text-center">Page Count</th>
-       <th class="text-center">MSRP($)</th>
-       </tr></thead>
+<div id="anotherApp" class="container">
 
-      
+  <table  class="table table-bordered table-striped " id="table-id">
+
+    <thead>
+
       <tr>
-        <td>2 States - the story of my marraige</td>
-        <td>Chetan Bhagat	</td>
-        <td>2009</td>
-        <td>Rupa Publications Pvt. Ltd.</td>
-        <td>298</td>
-        <td>12</td>
+
+        <tr>
+
+          <th class="text-center">Title </th>
+
+          <th class="text-center">Author(s)</th>
+
+          <th class="text-center">Year Published</th>
+
+          <th class="text-center">Publisher</th>
+
+          <th class="text-center">Page Count</th>
+
+          <th class="text-center">MSRP($)</th>
+
+          </tr>
+
       </tr>
-      <tr>
-        <td>The Dimension Disrupter</td>
-        <td>Divyang Modi</td>
-        <td>2019</td>
-        <td>White Falcon Publishers</td>
-        <td>253</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>How I Saved the World</td>
-        <td>Jesse Watters</td>
-        <td>2021</td>
-        <td>Broadside Books</td>
-        <td>320</td>
-        <td>27</td>
-      </tr>
-      <tr>
-        <td>The Immortals of Mehula</td>
-        <td>Amish Tripathi</td>
-        <td>2010</td>
-        <td>Penguin</td>
-        <td>400</td>
-        <td>31</td>
-      </tr>
-      <tr>
-        <td>Complications</td>
-        <td>Danielle Steel</td>
-        <td>2021</td>
-        <td>Delacorte Press</td>
-        <td>256</td>
-        <td>29</td>
-      </tr>
-       <tfoot>
-       <tr><td colspan="6">Books that every individual should take to the grave.</td></tr>
-       </tfoot>
-    </table>
+
+    </thead>
+
+      <tbody>
+
+          <tr v-for="book in books">
+
+              <td>{{ book.title }}</td>
+
+              <td>{{ book.author }}</td>
+
+              <td>{{ book.year_published }}</td>
+
+              <td>{{ book.publisher }}</td>
+
+              <td>{{ book.page_count }}</td>
+
+              <td>{{ prettyDollar(book.msrp)}}</td>
+
+          </tr>
+
+      </tbody>
+
+  </table>
+
+</div>
+
+</div>
   </div>
 
 <form>
@@ -126,7 +126,7 @@
  <p>&nbsp</p>
  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+<script src="js/index.js"></script>
 <script src="js/tablesort.min.js"></script>
 <!-- Tablesort plugin used from http://tristen.ca/tablesort/demo/ -->
 <script>
