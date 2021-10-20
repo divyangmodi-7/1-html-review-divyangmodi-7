@@ -3,10 +3,10 @@ const SomeApp = {
     data() {
 
         return {
-            "student": [],
-            "selectedStudent": null,
-            "books" : []
-
+            "books" : [],
+            "offers": [],
+            "offerForm": {},
+            selectedOffer : null
         }
 
     },
@@ -23,31 +23,43 @@ const SomeApp = {
 
         },
 
-        fetchBooksData() {
-
+        fetchBookData() {
             fetch('/api/books/')
-
-            .then( response => response.json() )
-
-            .then( (responseJson) => {
-
-                this.books = responseJson;
-
+            .then(response => response.json())
+            .then((parsedJson) => {
+                console.log(parsedJson);
+                this.books = parsedJson
             })
-
-            .catch( (err) => {
-
-                console.error(err);
-
+            .catch( err => {
+                console.error(err)
             })
+        },
 
-        }
+        postNewOffer(evt) {
+            // this.offerForm.studentId = this.selectedStudent.id;        
 
-    },
-
+    
+            fetch('api/books/create.php', {
+                method:'POST',
+                body: JSON.stringify(this.offerForm),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                // reset the form
+                this.offerForm = {};
+              });
+          }
+        },
     created(){
 
-        this.fetchBooksData();
+        this.fetchBookData();
 
     }
 

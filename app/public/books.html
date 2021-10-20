@@ -88,43 +88,39 @@
       </tbody>
 
   </table>
-
-</div>
-
-</div>
-  </div>
-
-<form>
+<form v-on:submit.prevent="postNewOffer">
  <div class="form-group">
- <label for="title">Title</label>
- <input type="text" class="form-control" id="title" placeholder="Enter Title">
+  <label for="title" class="form-label" >Title:</label>
+  <input type="text" v-model="offerForm.title" class="form-control" id="title" >
  </div>
  <div class="form-group">
- <label for="author">Author(s)</label>
- <input type="text" class="form-control" id="author" placeholder="Enter Author(s) Name">
+  <label for="author" class="form-label" >Author:</label>
+      <input type="text" v-model="offerForm.author"
+       class="form-control" id="author">
  </div>
  <div class="form-group">
- <label for="year">Year Published</label>
- <input type="number" class="form-control" id="year" placeholder="Enter Published Year">
+  <label for="year_published" class="form-label">Year Published:</label>
+  <input type="text" v-model="offerForm.year_published"
+   class="form-control" id="year_published">
  </div>
  <div class="form-group">
- <label for="publisher">Publisher</label>
- <input type="text" class="form-control" id="publisher" placeholder="Enter Publisher Name">
+  <label for="publisher" class="form-label">Publisher:</label>
+  <input type="text" v-model="offerForm.publisher"
+   class="form-control" id="publisher">
  </div>
  <div class="form-group">
-   <div class="col-lg-6 col-md-6">
- <label for="PgCount">Page Count</label>
- <input type="number" class="form-control" id="PgCount" placeholder="Enter Page Count">
-   </div>
+  <label for="page_count" class="form-label">Page Count:</label>
+  <input type="number" v-model="offerForm.page_count"
+   class="form-control" id="page_count">
  </div>
  <div class="form-group">
-   <div class="col-lg-6 col-md-6">
- <label for="amt">Price in $</label>
- <input type="number" class="form-control" id="amt" placeholder="Enter Price">
+  <label for="msrp" class="form-label">MSRP:</label>
+  <input type="number" v-model="offerForm.msrp"
+   class="form-control" id="msrp">
  </div>
- </div>
- <p>&nbsp</p>
- <button type="submit" class="btn btn-primary">Submit</button>
+ <br>
+ <input class="ad" type="submit" value="Add"><br>
+ <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 </form>
 <script src="js/index.js"></script>
 <script src="js/tablesort.min.js"></script>
