@@ -5,9 +5,8 @@ USE msisdb;
 DROP TABLE IF EXISTS books;
 
 CREATE TABLE books (
-
-    title varchar(96) PRIMARY KEY UNIQUE NOT NULL,
-
+    id int Primary key auto_increment,
+    title varchar(96) NOT NULL,
     author varchar(50),
 
     year_published int,
@@ -22,14 +21,14 @@ CREATE TABLE books (
 
 );
 
-INSERT INTO books (title, author, year_published, publisher, page_count, msrp) VALUES 
+INSERT INTO books (id,title, author, year_published, publisher, page_count, msrp) VALUES 
 
-('The Dimension Disrupter', 'Divyang Modi', 2019, 'White Falcon Publishers', 3253, 15),
+(1,'The Dimension Disrupter', 'Divyang Modi', 2019, 'White Falcon Publishers', 3253, 15),
 
-('How I Saved the World', 'Jesse Watters', 2021, 'Broadside Books', 320, 27),
+(2,'How I Saved the World', 'Jesse Watters', 2021, 'Broadside Books', 320, 27),
 
-('The Immortals of Mehula', 'Amish Tripathi', 2010, 'Penguin', 400, 31),
+(3,'The Immortals of Mehula', 'Amish Tripathi', 2010, 'Penguin', 400, 31),
 
-('2 States - the story of my marraige', 'Chetan Bhagat', 2009, 'Rupa Publications Pvt. Ltd.', 298, 12),
+(4,'2 States - the story of my marraige', 'Chetan Bhagat', 2009, 'Rupa Publications Pvt. Ltd.', 298, 12),
 
-('Complications', 'Danielle Steel', 2020, 'Delacorte Press', 256, 29);
+(5,'Complications', 'Danielle Steel', 2020, 'Delacorte Press', 256, 29);

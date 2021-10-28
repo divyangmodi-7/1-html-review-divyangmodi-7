@@ -39,7 +39,7 @@
 
 <div id='makingcenter'>
 <h4>Books to Read</h4>
-<div id="anotherApp" class="container">
+<div id="anApp" class="container">
 
   <table  class="table table-bordered table-striped " id="table-id">
 
@@ -82,13 +82,18 @@
               <td>{{ book.page_count }}</td>
 
               <td>{{ prettyDollar(book.msrp)}}</td>
-
+              <td>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                              v-on:click="selectOfferToEdit(book)">Edit</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                              v-on:click="postDeleteOffer(book)">Delete</button>
+              </td>
           </tr>
 
       </tbody>
 
   </table>
-<form v-on:submit.prevent="postNewOffer">
+<form v-on:submit.prevent="postOffer">
  <div class="form-group">
   <label for="title" class="form-label" >Title:</label>
   <input type="text" v-model="offerForm.title" class="form-control" id="title" >
@@ -119,7 +124,9 @@
    class="form-control" id="msrp">
  </div>
  <br>
- <input class="ad" type="submit" value="Add"><br>
+ <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Book </button>
+  <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+  <br>
  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 </form>
 <script src="js/index.js"></script>
